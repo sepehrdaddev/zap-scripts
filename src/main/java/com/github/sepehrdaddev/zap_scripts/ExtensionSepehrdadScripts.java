@@ -23,7 +23,6 @@
  * SOFTWARE.
  *
  */
-
 package com.github.sepehrdaddev.zap_scripts;
 
 import java.io.File;
@@ -37,8 +36,7 @@ import org.parosproxy.paros.extension.ExtensionAdaptor;
 import org.zaproxy.zap.extension.script.ExtensionScript;
 
 /**
- * Sepehrdad Scripts Extension - a packaged version of
- * https://github.com/sepehrdaddev/zap-scripts
+ * Sepehrdad Scripts Extension - a packaged version of https://github.com/sepehrdaddev/zap-scripts
  */
 public class ExtensionSepehrdadScripts extends ExtensionAdaptor {
 
