@@ -2,7 +2,9 @@
 Zed Attack Proxy Scripts for finding CVEs and Secrets
 
 
-The scripts under the `Active` directory are ported from the amazing [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) repository, so huge shoutout to [projectdiscovery](https://github.com/projectdiscovery) and the community.
+The scripts under the `active` directory are ported from the amazing [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) repository, so huge shoutout to [projectdiscovery](https://github.com/projectdiscovery) and the community.
+
+`secret-finder.js` uses regex patterns from the awesome [gitleaks](https://github.com/zricethezav/gitleaks) project.
 
 ## License
 
