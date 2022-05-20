@@ -48,11 +48,23 @@ function scan(ps, msg, src) {
 
 	var uri = msg.getRequestHeader().getURI();
 
+	var content_type = msg.getResponseHeader().getHeader("Content-Type");
+
+	var ignore_list = [
+		"image/png", "image/jpeg", "image/gif",
+		"application/x-shockwave-flash", "application/pdf"
+	];
+
+	if (ignore_list.indexOf(content_type) >= 0) {
+		log("ignoring scan for " + uri);
+		return;
+	}
+
 	log("scanning " + uri);
 
 	var rules = {
 		"GitLab Personal Access Token": "glpat-[0-9a-zA-Z-\_]{20}",
-		"AWS": "(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}",
+		"AWS key": "(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}",
 		"PKCS8 private key": "-----BEGIN PRIVATE KEY-----",
 		"RSA private key": "-----BEGIN RSA PRIVATE KEY-----",
 		"SSH private key": "-----BEGIN OPENSSH PRIVATE KEY-----",
@@ -151,11 +163,10 @@ function scan(ps, msg, src) {
 		var re = new RegExp(rules[rule], 'g')
 		var findings = response_body.toString().match(re);
 
-		// Test the response here, and make other requests as required
 		if (findings) {
 			for (var i in findings) {
-				alert(ps, msg, "[" + rule + "]: " + "secrets were found",
-					rule + " secrets were found during passive scan",
+				alert(ps, msg, "[" + this["zap.script.name"] + "] " + "secrets were found",
+					rule + " was found.",
 					findings[i]);
 			}
 		}
