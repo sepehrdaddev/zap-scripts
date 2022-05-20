@@ -34,7 +34,7 @@ zapAddOn {
 }
 
 var scriptTypes = listOf(
-        "active")
+        "active", "passive")
 
 val syncScriptsDirTask by tasks.creating(Sync::class) {
     into(scriptsDir.get().dir(project.name))
