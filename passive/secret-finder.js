@@ -160,7 +160,7 @@ function scan(ps, msg, src) {
 	var response_body = msg.getResponseBody();
 
 	for (var rule in rules) {
-		var re = new RegExp(rules[rule], 'g')
+		var re = new RegExp(rules[rule], 'g');
 		var findings = response_body.toString().match(re);
 
 		if (findings) {
