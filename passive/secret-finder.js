@@ -23,7 +23,7 @@
  * SOFTWARE.
  *
  */
-
+var TITLE = "[" + this["zap.script.name"] + "] " + "secrets were found"
 var RISK = 2 // 0: info, 1: low, 2: medium, 3: high
 var CONFIDENCE = 3 // 0: falsePositive, 1: low, 2: medium, 3: high, 4: confirmed
 var SOLUTION = "Rotate the Credentials and remove exposure."
@@ -32,11 +32,11 @@ function log(msg) {
 	print("[" + this["zap.script.name"] + "] " + msg);
 }
 
-function alert(ps, msg, title, description, evidence) {
+function alert(ps, msg, description, evidence) {
 	ps.newAlert()
 		.setRisk(RISK)
 		.setConfidence(CONFIDENCE)
-		.setName(title)
+		.setName(TITLE)
 		.setDescription(description)
 		.setEvidence(evidence)
 		.setSolution(SOLUTION)
@@ -165,9 +165,7 @@ function scan(ps, msg, src) {
 
 		if (findings) {
 			for (var i in findings) {
-				alert(ps, msg, "[" + this["zap.script.name"] + "] " + "secrets were found",
-					rule + " was found.",
-					findings[i]);
+				alert(ps, msg, rule + " was found.", findings[i]);
 			}
 		}
 	}
