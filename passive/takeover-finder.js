@@ -25,7 +25,7 @@
  */
 var TITLE = "[" + this["zap.script.name"] + "] " + "subdomain takeover was found"
 var RISK = 2 // 0: info, 1: low, 2: medium, 3: high
-var CONFIDENCE = 3 // 0: falsePositive, 1: low, 2: medium, 3: high, 4: confirmed
+var CONFIDENCE = 2 // 0: falsePositive, 1: low, 2: medium, 3: high, 4: confirmed
 var SOLUTION = "Remove the affected DNS record or Claim the domain name/Bucket."
 
 function log(msg) {
@@ -64,6 +64,7 @@ function scan(ps, msg, src) {
 
 	var rules = {
 		"aftership": "Oops.</h2><p class=\"text-muted text-tight\">The page you're looking for doesn't exist.",
+		"acquia": "The site you are looking for could not be found.",
 		"agilecrm": "Sorry, this page is no longer available.",
 		"aha": "There is no portal here ... sending you back to Aha!",
 		"airee": "Ошибка 402. Сервис Айри.рф не оплачен",
@@ -80,6 +81,7 @@ function scan(ps, msg, src) {
 		"feedpress": "The feed has not been found.",
 		"flexbe": "Domain isn't configured",
 		"flywheel": "We're sorry, you've landed on a page that is hosted by Flywheel",
+		"fastly": "Fastly error: unknown domain",
 		"frontify": "404 - Page Not Found",
 		"gemfury": "404: This page could not be found.",
 		"getresponse": "With GetResponse Landing Pages, lead generation has never been easier",
@@ -120,11 +122,13 @@ function scan(ps, msg, src) {
 		"tilda": "Please go to the site settings and put the domain name in the Domain tab.",
 		"tumblr": "Whatever you were looking for doesn't currently exist at this address.",
 		"uberflip": "Non-hub domain, The URL you've accessed does not provide a hub.",
+		"uservoice": "This UserVoice subdomain is currently available!",
 		"vend": "Looks like you've traveled too far into cyberspace.",
 		"webflow": "<p class=\"description\">The page you are looking for doesn't exist or has been moved.</p>",
 		"wishpond": "https://www.wishpond.com/404?campaign=true",
 		"wix": "Error ConnectYourDomain occurred",
 		"wordpress": "Do you want to register",
+		"worksites.net": "Hello! Sorry, but the website you&rsquo;re looking for doesn&rsquo;t exist.</p>\n<a href=\"https://worksites.net/\">Learn more about Worksites.net",
 		"wufoo": "Profile not found",
 		"zendesk": "this help center no longer exists",
 	}
