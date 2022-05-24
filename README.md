@@ -28,7 +28,7 @@ This software is distributed under the MIT License.
 
 * `secret-finder.js` uses regex patterns from the awesome [gitleaks](https://github.com/zricethezav/gitleaks) project.
 
-* `takeover-finder.js` uses patterns from the awesome [[nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) repository.
+* `takeover-finder.js` uses patterns from the awesome [nuclei-templates](https://github.com/projectdiscovery/nuclei-templates) repository.
 ## LEGAL NOTICE
 
 THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL USE ONLY! IF YOU ENGAGE IN ANY ILLEGAL ACTIVITY THE AUTHOR DOES NOT TAKE ANY RESPONSIBILITY FOR IT. BY USING THIS SOFTWARE YOU AGREE WITH THESE TERMS.
